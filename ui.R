@@ -4,7 +4,6 @@ library(shinydashboard)
 library(shinydashboardPlus)
 # loading ->  %>% withSpinner(color="blue")
 library(shinycssloaders)
-
 library(dplyr) 
 library(plotly)
 library(DT)
@@ -12,7 +11,6 @@ library(magick)
 library(networkD3)
 library(rintrojs)
 #options(shiny.error = browser)
-#library(bs4Dash)
 
 guess_id <- function(x) {
   stopifnot(any(class(x) %in% c("shiny.tag", "shiny.tag.list")))
@@ -63,7 +61,7 @@ sidebar <- dashboardSidebar(
         "var today = new Date();",
         "var yyyy = today.getFullYear();",
         "</script>",
-        "<p style = 'text-align: center;'><small>&copy; - <a href='https://www.samarajiwa-lab.org/' target='_blank'>samarajiwa-lab.org</a> - <script>document.write(yyyy);</script></small></p>")
+        "<p style = 'text-align: center;'><small>&copy; - <a href='http://www.edu-ing.cn' target='_blank'>edu-ing.cn</a> - <script>document.write(yyyy);</script></small></p>")
       ))
   )
   
