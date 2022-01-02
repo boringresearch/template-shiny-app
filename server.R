@@ -4,29 +4,22 @@ library(shinydashboard)
 library(shinydashboardPlus)
 library(shinycssloaders)
 
-# function ----
-splitvec <- function(vector, split, select, merge = "_"){
-  processed <- sapply(vector, function(x){
-    separated <- unlist(strsplit(x, split = split))[select]
-    if (length(separated) > 1){
-      return(paste(separated, collapse = merge))
-    } else
-      return(separated)
-  })
-  processed <- unname(processed)
-  return(processed)
+# function definition ----
+somefunc <- function(input1, input2 = "_"){
+  return(input2)
 }
 
 server <- shinyServer(function(input, output, session) {
   
-  # init eg.change some variable----
+  # Init0. eg.change some variables ----
   v <- reactiveValues(upload = 0)
+  
   observeEvent(input$submit, {
     v$upload <- 1
   })
-  # I. load data ----
   
-  ######read ddata######
+  # Sections
+  # I. load data ----
   result <- reactive({
     #result <- read.csv("data/xxx.csv")
     return(result)
@@ -44,11 +37,9 @@ server <- shinyServer(function(input, output, session) {
   
   
   # p1. submit gene symbol with ID and genename ----
-
   datapasted <- eventReactive(input$submit, {
     return(datapasted)
   })
-  
   
   # visitor counts ----
   output$counter <- renderValueBox({
